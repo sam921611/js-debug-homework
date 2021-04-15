@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="http://unpkg.com/vue@latest/dist/vue.min.js"></script>
+		<title> Login </title>
+
+		<!-- <script src="Main.js"></script> -->
+	</head>
+	<body>
+		<form method="post" id="app">
+			<div id="divcontext" v-if="show">
+			<p>NickName:{{nickname}}</p>
+			<p>Title:{{title}}</p>
+			<p>Message:{{message}}</p>
+			<p>{{showdata}}</p>
+			</div>
+			NickName: <br /><input type="text" name="nickname" v-model="nickname" /><br />
+			Title: <br /><input type="text" name="title" v-model="title" /><br />
+			Message: <br /><textarea name="message" rows="5" cols="80" v-model="message"></textarea><br />
+
+			<button type="button" id="btn1" @click="send()">Send</button>
+
+		</form>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					nickname: "",
+					title: "",
+					message: "",
+					show:false,
+					showdata:""
+				},
+				methods: {
+					send(){
+						this.show = true,
+						this.showdata = new Date()
+					}
+					
+				}
+			})
+		</script>
+	</body>
+</html>

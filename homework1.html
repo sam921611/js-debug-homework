@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title> Login </title>
+
+		<!-- <script src="/Scripts/jquery-3.6.0.min.js"></script> -->
+		<!-- <script src="/Homework1/Main.js"></script> -->
+		<script src="http://unpkg.com/vue@latest/dist/vue.min.js"></script>
+	</head>
+	<body>
+		<form method="post" id="app" @submit="checkForm" action="/提交頁面跳轉示範" novalidate="true">
+
+			Account: <input type="text" name="account" v-model="account" /><br />
+			Password: <input type="password" name="pwd" v-model="password" /><br />
+			Recheck Password: <input type="password" name="repwd" v-model="repwd" /><br />
+			Name: <input type="text" name="name" v-model="name" /><br />
+			Birthday: <input type="date" name="birthday" placeholder="format: 2021-01-01" /><br />
+
+			<button type="submit" id="btn1" @click="checkForm()">Show</button>
+
+			<p v-if="errors.length">
+				<b>請更正錯誤</b>
+			<ul>
+				<li v-for="error in errors">{{ error }}</li>
+			</ul>
+			</p>
+		</form>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					errors: [],
+					account: null,
+					password: null,
+					repwd: null,
+					name: null,
+				},
+				methods: {
+					checkForm: function(e) {
+						this.errors = [];
+						if (!this.account) this.errors.push("請輸入帳號");
+
+						if (!this.password) {
+							this.errors.push("請輸入密碼")
+						}
+						if (!this.repwd) {
+							this.errors.push("請輸入新密碼")
+						}
+						if (this.password != this.repwd) {
+							this.errors.push("兩個密碼不相符")
+						}
+						if (!this.name) {
+							this.errors.push("請輸入名稱")
+						}
+						if (!this.errors.length) return true;
+						e.preventDefault();
+					},
+
+				}
+			})
+		</script>
+	</body>
+</html>

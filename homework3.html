@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="http://unpkg.com/vue@latest/dist/vue.min.js"></script>
+		<title> Login </title>
+
+		<!-- <script src="Main.js"></script> -->
+	</head>
+	<body>
+		<form method="post" id="app">
+				<table id="tableList" border="1">
+				    <tr>
+				        <th>Book name</th>
+				        <th>ISBN</th>
+				        <th>Price</th>
+				    </tr>
+					<tr v-for="book in books">
+						<td>{{ book.Name }}</td>
+						<td>{{ book.ISBN }}</td>
+						<td>{{ book.Price }}</td>
+					</tr>
+				</table>
+		</form>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					books: [{
+							"Name": "超圖解 ESP32 深度實作",
+							"ISBN": "9863126608",
+							"Price": 880
+						},
+						{
+							"Name": "大話設計模式 ",
+							"ISBN": "9866761797",
+							"Price": 620
+						}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

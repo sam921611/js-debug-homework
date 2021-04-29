@@ -10,12 +10,19 @@ $ give me super-powers
 
 Once you're strong enough, save the world:
 
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
+```aspnet
+using System;
+namespace HelloWorldApplication
+{
+   class HelloWorld
+   {
+      static void Main(string[] args)
+      {
+         /* 我的第一个 C# 程序*/
+         Console.WriteLine("Hello World");
+         Console.ReadKey();
+      }
+   }
+}
 ```
-{% endcode %}
-
-
 
